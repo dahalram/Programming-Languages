@@ -3,7 +3,7 @@
 (DEFINE (reverse-helper L)
         (IF (NULL? L)
            L
-           (APPEND (reverse-general (CDR L)) (LIST (CAR L)))
+           (APPEND (reverse-helper (CDR L)) (LIST (CAR L)))
         )
 )
 
@@ -14,7 +14,7 @@
              (reverse-helper L))
 )
 
-(reverse-general '((a d) (b c e)))
+(reverse-general '((a b c)) )
 (reverse-general '(a b (c (d e)) f) )
 
 (DEFINE (sum-up-numbers-simple L)
