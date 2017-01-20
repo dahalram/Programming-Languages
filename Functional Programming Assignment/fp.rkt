@@ -8,12 +8,13 @@
 )
 
 (DEFINE (reverse-general L)
-        (LAMBDA (A) (IF (LIST? A)
-            (reverse-general A) A)
-        (reverse-helper L))
+        (MAP (LAMBDA (A)
+                     (IF (LIST? A)
+                         (reverse-general A) A))
+             (reverse-helper L))
 )
 
-(reverse-general '(a (b c)))
+(reverse-general '((a d) (b c e)))
 (reverse-general '(a b (c (d e)) f) )
 
 (DEFINE (sum-up-numbers-simple L)
