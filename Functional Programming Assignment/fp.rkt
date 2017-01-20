@@ -1,10 +1,16 @@
 ;;First commit
 
-(DEFINE (reverse-general L)
+(DEFINE (reverse-helper L)
         (IF (NULL? L)
            L
            (APPEND (reverse-general (CDR L)) (LIST (CAR L)))
         )
+)
+
+(DEFINE (reverse-general L)
+        (LAMBDA (A) (IF (LIST? A)
+            (reverse-general A) A)
+        (reverse-helper L))
 )
 
 (reverse-general '(a (b c)))
