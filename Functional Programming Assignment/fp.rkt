@@ -1,10 +1,11 @@
 ;;First commit
 (DEFINE (reverse-general L)
-        (reverse-general (CDR()) )
-
-
+        (reverse-general (CDR L)) (CAR L)
+            
         
 )
+
+(reverse-general '(a b (c (d e)) f) )
 
 (DEFINE (sum-up-numbers-simple L)
 
