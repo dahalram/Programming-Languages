@@ -18,7 +18,11 @@
 (reverse-general '(a b (c (d e)) f) )
 
 (DEFINE (sum-up-numbers-simple L)
+        (COND ((NULL? L) 0)
+              (IF (NUMBER? L) L 0)
+              (ELSE (+ (CAR L) (CDR L)))
 
+         )
 
 
 )
