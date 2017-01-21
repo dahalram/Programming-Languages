@@ -19,12 +19,14 @@
 
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
-              ((NUMBER? L) L 0)
-              ((+  (CAR L) (sum-up-numbers-simple (CDR L)))) ;Contract violation error
+              ((NUMBER? L) L)
+              ((not (NUMBER? (CAR L))) 0)
+              (ELSE (+  (CAR L) (sum-up-numbers-simple (CDR L)))) ;Contract violation error
          )
 )
 
 (sum-up-numbers-simple '(1 (2 3)))
+(sum-up-numbers-simple '(1 2 3))
 
 (DEFINE (sum-up-numbers-general L)
         (COND ((NULL? L) 0)
