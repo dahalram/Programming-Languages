@@ -19,15 +19,18 @@
 
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
+              ;;((NOT (PAIR? L))
               ((NUMBER? L) L 0)
-              (ELSE (+ (CAR L) (sum-up-numbers-simple (CDR L))))
+              ((+ (CAR L) (sum-up-numbers-simple (CDR L))))
          )
 )
 
 (sum-up-numbers-simple '(1 (2 3)))
 
 (DEFINE (sum-up-numbers-general L)
-
+        (COND ((NULL? L) 0)
+              ((NUMBER? L) L 0)
+              
 
 
 )
