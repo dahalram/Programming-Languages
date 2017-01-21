@@ -19,7 +19,6 @@
 
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
-              ;;((NOT (PAIR? L))
               ((NUMBER? L) L 0)
               ((+ (CAR L) (sum-up-numbers-simple (CDR L))))
          )
@@ -31,8 +30,7 @@
         (COND ((NULL? L) 0)
               ((NUMBER? L) L 0)
               ((+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
-         )
-              
+         )              
 )
 
 (DEFINE (min-above-min L1 L2)
