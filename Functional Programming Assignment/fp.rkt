@@ -20,7 +20,7 @@
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
               ((NUMBER? L) L 0)
-              ((+ (CAR L) (sum-up-numbers-simple (CDR L))))
+              ((+  (CAR L) (sum-up-numbers-simple (CDR L)))) ;Contract violation error
          )
 )
 
