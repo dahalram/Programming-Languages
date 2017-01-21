@@ -19,13 +19,12 @@
 
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
-              (IF (NUMBER? L) L 0)
-              (ELSE (+ (CAR L) (CDR L)))
-
+              ((NUMBER? L) L 0)
+              (ELSE (+ (CAR L) (sum-up-numbers-simple (CDR L))))
          )
-
-
 )
+
+(sum-up-numbers-simple '(1 (2 3)))
 
 (DEFINE (sum-up-numbers-general L)
 
