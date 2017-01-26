@@ -32,7 +32,8 @@
 (DEFINE (sum-up-numbers-general L)
         (COND ((NULL? L) 0)
               ((NUMBER? L) L 0)
-              ((+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
+              ((LIST? (CAR L) (sum-up-numbers-general (CAR L))))
+              (ELSE (+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
          )              
 )
 
