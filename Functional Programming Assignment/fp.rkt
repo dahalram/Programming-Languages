@@ -47,14 +47,20 @@
 (DEFINE (min-val L)
         (COND ;((NUMBER? (CAR L)) )
               ((NULL? L) #f)
-              ((NULL? (CDR L)) (CAR L)) ;(NUMBER? (CAR L) (CAR L)))
+              ;((NULL? (CDR L)) (CAR L)) ;(NUMBER? (CAR L) (CAR L)))
               ((NUMBER? (CAR L))
                (IF (NUMBER? (min-val (CDR L)))
                    (IF (< (CAR L) (min-val (CDR L))) (CAR L)
-                       (min-val (CDR L))))
-               (CAR L))
+                       (min-val (CDR L)))
+               (CAR L)))
               (ELSE (min-val (CDR L)))
          )
+)
+
+(DEFINE (get-larger-nums L)
+
+
+
 )
 
 (DEFINE (min-above-min L1 L2)
