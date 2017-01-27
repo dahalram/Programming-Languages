@@ -40,9 +40,9 @@
 )
 
 (sum-up-numbers-general '(a 100 b (200) c 300 d))
-(sum-up-numbers-general '(a 100 b (200) c 300 d))
-(sum-up-numbers-general '(a 100 b (200) c 300 d))
-(sum-up-numbers-general '(a 100 b (200) c 300 d))
+(sum-up-numbers-general '())
+(sum-up-numbers-general '((100)))
+(sum-up-numbers-general '(100 (200)))
 
 (DEFINE (min-above-min L1 L2)
 
