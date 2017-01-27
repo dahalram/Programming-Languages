@@ -1,5 +1,7 @@
-;;First commit
+;;Ram Hari Dahal
 
+;;;;;;;;;;; 1. 
+; Reverse a general list
 (DEFINE (reverse-helper L)
         (IF (NULL? L)
            L
@@ -7,6 +9,7 @@
         )
 )
 
+; Do a recursion on the general list
 (DEFINE (reverse-general L)
         (MAP (LAMBDA (A)
                      (IF (LIST? A)
@@ -17,6 +20,9 @@
 (reverse-general '((a b c)) )
 (reverse-general '(a b (c (d e)) f) )
 
+
+;;;;;;;;; 2.
+; Sum of only the numbers, not the nested lists
 (DEFINE (sum-up-numbers-simple L)
         (COND ((NULL? L) 0)
               ((NUMBER? L) L 0)
@@ -29,6 +35,9 @@
 (sum-up-numbers-simple '(1 (2 3)))
 (sum-up-numbers-simple '(a 100 b (200) c 300 d))
 
+
+;;;;;;;;; 3.
+; Sum of all the numbers including in the nested list
 (DEFINE (sum-up-numbers-general L)
         (COND ((NULL? L) 0)
               ;((NUMBER? L) L 0)
@@ -44,6 +53,9 @@
 (sum-up-numbers-general '((100)))
 (sum-up-numbers-general '(100 (200)))
 
+
+;;;;;;;;;4.
+; Find the value in list1 that is greater than the min value in list2
 (DEFINE (min-val L)
         (COND ;((NUMBER? (CAR L)) )
               ((NULL? L) #f)
