@@ -59,7 +59,7 @@
 
 (DEFINE (get-larger-nums L1 L2)
         (COND ((NULL? L1) '())
-              ((COND ((NUMBER? (CAR L1)) ( > (CAR L1) (min-val L2) )) (ELSE #F))
+              ((COND ((NUMBER? (CAR L1)) (> (CAR L1) (min-val L2) )) (ELSE #F))
                (CONS (CAR L1)
                      (get-larger-nums (CDR L1) L2)))
               (ELSE (get-larger-nums (CDR L1) L2))
@@ -68,8 +68,6 @@
 )
 
 (DEFINE (min-above-min L1 L2)
-        
-
-
+       (min-val (get-larger-nums L1 L2)) 
 
 )
