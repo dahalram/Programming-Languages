@@ -44,7 +44,15 @@
 (sum-up-numbers-general '((100)))
 (sum-up-numbers-general '(100 (200)))
 
+(DEFINE (min-val L)
+        (COND ((NULL? (CDR L)) (CAR L))
+              ((NUMBER? (CAR L)) (< (CAR L) (min-val (CDR L))) (CAR L))
+              (ELSE (min-val (CDR L)))
+         )
+)
+
 (DEFINE (min-above-min L1 L2)
+        
 
 
 
