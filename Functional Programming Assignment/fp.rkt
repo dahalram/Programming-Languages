@@ -32,10 +32,12 @@
 (DEFINE (sum-up-numbers-general L)
         (COND ((NULL? L) 0)
               ((NUMBER? L) L 0)
-              ((LIST? (CAR L) (sum-up-numbers-general (CAR L))))
-              (ELSE (+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
+              ((LIST? (CAR L)) (+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
+              (ELSE (+ (CAR L) (sum-up-numbers-general (CDR L))))
          )              
 )
+
+(sum-up-numbers-general '(a 100 b (200) c 300 d))
 
 (DEFINE (min-above-min L1 L2)
 
