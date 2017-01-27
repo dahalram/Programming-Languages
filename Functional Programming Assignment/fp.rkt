@@ -17,6 +17,13 @@
              (reverse-helper L))
 )
 
+(DISPLAY "*****Problem 1.****\n")
+(reverse-general '())
+(reverse-general '(a b c))
+(reverse-general '(a b ()))
+(reverse-general '((a b c) (d e f)))
+(reverse-general '((a (b c) ((d e) f) g)))
+(reverse-general '(1 (2 3) (4 (a (b (c d))))))
 (reverse-general '((a b c)) )
 (reverse-general '(a b (c (d e)) f) )
 
@@ -31,6 +38,15 @@
          )
 )
 
+(DISPLAY "*****Problem 2.****\n")
+(sum-up-numbers-simple '())
+(sum-up-numbers-simple '(100 200))
+(sum-up-numbers-simple '(a b c))
+(sum-up-numbers-simple '(100 a))
+(sum-up-numbers-simple '(a 100))
+(sum-up-numbers-simple '(a 100 b 200 c 300 d))
+(sum-up-numbers-simple '((100)))
+(sum-up-numbers-simple '(100 (200)))
 (sum-up-numbers-simple '(()))
 (sum-up-numbers-simple '(1 (2 3)))
 (sum-up-numbers-simple '(a 100 b (200) c 300 d))
@@ -48,10 +64,18 @@
          )              
 )
 
-(sum-up-numbers-general '(a 100 b (200) c 300 d))
+(DISPLAY "*****Problem 3.****\n")
+(sum-up-numbers-general '(a b 1 (2 c (3)) d))
 (sum-up-numbers-general '())
+(sum-up-numbers-general '(100))
+(sum-up-numbers-general '(100 200))
+(sum-up-numbers-general '(a))
+(sum-up-numbers-general '(a 100 b 200 c 300 d))
+(sum-up-numbers-general '(()))
 (sum-up-numbers-general '((100)))
 (sum-up-numbers-general '(100 (200)))
+(sum-up-numbers-general '(a 100 b (200) c 300 d))
+(sum-up-numbers-general '(a 100 ((b ((200) c)) 300 d)))
 
 
 ;;;;;;;;;4.
@@ -91,6 +115,7 @@
        )
 )
 
+(DISPLAY "*****Problem 4.****\n")
 (min-above-min '(2 a 1 3) '(b 5 3 1))
 (min-above-min '() '(a 100 b 200 c 300 d))
 (min-above-min '(100) '())
