@@ -46,6 +46,7 @@
 
 (DEFINE (min-val L)
         (COND ;((NUMBER? (CAR L)) )
+              ((NULL? L) #f)
               ((NULL? (CDR L)) (CAR L)) ;(NUMBER? (CAR L) (CAR L)))
               ((NUMBER? (CAR L))
                (IF (NUMBER? (min-val (CDR L)))
