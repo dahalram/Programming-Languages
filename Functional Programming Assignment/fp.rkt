@@ -17,16 +17,6 @@
              (reverse-helper L))
 )
 
-(DISPLAY "*****Problem 1.****\n")
-(reverse-general '())
-(reverse-general '(a b c))
-(reverse-general '(a b ()))
-(reverse-general '((a b c) (d e f)))
-(reverse-general '((a (b c) ((d e) f) g)))
-(reverse-general '(1 (2 3) (4 (a (b (c d))))))
-(reverse-general '((a b c)) )
-(reverse-general '(a b (c (d e)) f) )
-
 
 ;;;;;;;;; 2.
 ; Sum of only the numbers, not the nested lists
@@ -37,19 +27,6 @@
               (ELSE (+  (CAR L) (sum-up-numbers-simple (CDR L)))) 
          )
 )
-
-(DISPLAY "*****Problem 2.****\n")
-(sum-up-numbers-simple '())
-(sum-up-numbers-simple '(100 200))
-(sum-up-numbers-simple '(a b c))
-(sum-up-numbers-simple '(100 a))
-(sum-up-numbers-simple '(a 100))
-(sum-up-numbers-simple '(a 100 b 200 c 300 d))
-(sum-up-numbers-simple '((100)))
-(sum-up-numbers-simple '(100 (200)))
-(sum-up-numbers-simple '(()))
-(sum-up-numbers-simple '(1 (2 3)))
-(sum-up-numbers-simple '(a 100 b (200) c 300 d))
 
 
 ;;;;;;;;; 3.
@@ -63,19 +40,6 @@
               (ELSE (sum-up-numbers-general (CDR L)))
          )              
 )
-
-(DISPLAY "*****Problem 3.****\n")
-(sum-up-numbers-general '(a b 1 (2 c (3)) d))
-(sum-up-numbers-general '())
-(sum-up-numbers-general '(100))
-(sum-up-numbers-general '(100 200))
-(sum-up-numbers-general '(a))
-(sum-up-numbers-general '(a 100 b 200 c 300 d))
-(sum-up-numbers-general '(()))
-(sum-up-numbers-general '((100)))
-(sum-up-numbers-general '(100 (200)))
-(sum-up-numbers-general '(a 100 b (200) c 300 d))
-(sum-up-numbers-general '(a 100 ((b ((200) c)) 300 d)))
 
 
 ;;;;;;;;;4.
@@ -115,15 +79,4 @@
        )
 )
 
-(DISPLAY "*****Problem 4.****\n")
-(min-above-min '(2 a 1 3) '(b 5 3 1))
-(min-above-min '() '(a 100 b 200 c 300 d))
-(min-above-min '(100) '())
-(min-above-min '(a 200 b 100 c 300 d) '())
-(min-above-min '(a) '())
-(min-above-min '(a) '(a 200 b 300 c 100 d))
-(min-above-min '(a b c) '(a 200 b 300 c 100 d))               
-(min-above-min '(a 200) '(a 200 b 300 c 100 d))
-(min-above-min '(a 100) '(a 200 b 300 c 100 d))
-(min-above-min '(100 200 300) '(200 300 100))
-(min-above-min '(a 300 b 100 c 200 d)  '(a 200 b 300 c 100 d))
+(min-val '(a 2 b 3))
