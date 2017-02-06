@@ -12,6 +12,7 @@ is_number(X, 0) :-
 
 list_sum([], 0).
 list_sum([Head | Tail], Sum) :-
+	not(number(Head)),
     list_sum(Tail, RestSum),
-    Sum is Head + RestSum.
+    Sum is 0 + RestSum.
 
