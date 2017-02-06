@@ -23,3 +23,13 @@ sum_list([H|T], Sum) :-
 
 % check_val([], 0).
 % check_val()
+list_sum([], P).
+list_sum([100, 200], P).
+list_sum([a, b, c], P).
+list_sum([100, a], P).
+list_sum([a, 100], P).
+list_sum([a, 100, b, 200, c, 300, d], P).
+list_sum([[]], P).
+list_sum([[100]], P).
+list_sum([100, [200]], P).
+list_sum([a, 100, b, [200], c, 300, d], P).
