@@ -20,15 +20,6 @@ get_min([X, Y | Rest], Min) :-
 	get_min([Y | Rest], Min).
 
 
-delete_gt([], _, []).
-
-delete_gt([Head|Rest], X, L) :-
-  Head > X,
-  delete_gt(Rest, X, L).
-
-delete_gt([Head|Rest], X, [Head|L]) :-
-  delete_gt(Rest, X, L).
-
 d_n([], []).
 d_n([H|R], L) :- 
 	not(number(H)),
@@ -38,4 +29,20 @@ d_n([H|R], [H|L]) :-
 	d_n(R, L).
 
 
+delete_gt([], _, []).
+
+delete_gt([Head|Rest], X, L) :-
+  Head > X,
+  delete_gt(Rest, X, L).
+
+delete_gt([Head|Rest], X, [Head|L]) :-
+  delete_gt(Rest, X, L).
+
+
+min_above_min(L1, L2, N) :- 
+	get_nums(L2, Res2),
+	get_min(Res2, Min2),
+	get_nums(L1, Res1),
+	get_larger(Res1, Min2, Larger),
+	get_min(Larger, N).
 

@@ -83,16 +83,14 @@ get_nums([Head | Rest], [Head | List]) :-
 	get_nums(Rest, List).
 
 
+get_larger([], _, []).
 
+get_larger([Head | Rest], X, List) :- 
+	Head > X,
+	get_larger(Rest, X, List).
 
-
-
-
-
-
-
-
-
+get_larger([Head | Rest], X, [Head | List]) :- 
+	get_larger(Rest, X, List).
 
 
 
