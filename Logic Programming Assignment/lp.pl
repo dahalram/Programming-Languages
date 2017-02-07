@@ -60,3 +60,39 @@ sum-up-numbers-general([Head | Tail], Sum) :-
 	Sum is Head + RestSum.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3 min-above-min(L1, L2, N).
+
+get_min([X], X).
+
+get_min([X, Y | Rest], Min) :- 
+	X < Y,
+	get_min([X | Rest], Min).
+
+get_min([X, Y | Rest], Min) :- 
+	get_min([Y | Rest], Min).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

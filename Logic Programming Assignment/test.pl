@@ -20,3 +20,12 @@ sum_list2([H|T], Sum) :-
 	sum_list2(T, Rest),
 	Sum is H + Rest.
 
+min([X], X).
+min([], 0).
+
+min([X, Y | R], Min) :-
+    X < Y,
+    min([X | R], Min).
+
+min([X, Y | R], Min) :-
+   min([Y | R], Min).
