@@ -73,6 +73,14 @@ get_min([X, Y | Rest], Min) :-
 	get_min([Y | Rest], Min).
 
 
+get_nums([], []).
+
+get_nums([Head | Rest], List) :- 
+	not(number(Head)),
+	get_nums(Rest, List).
+
+get_nums([Head | Rest], [Head | List]) :- 
+	get_nums(Rest, List).
 
 
 
