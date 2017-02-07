@@ -1,4 +1,5 @@
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1 sum-up-numbers-simple(L, N).
 
 % Pseudo-code
@@ -21,4 +22,16 @@ sum-up-numbers-simple([Head | Tail], Sum) :-
 	not(is_list(Head)),
 	sum-up-numbers-simple(Tail, RestSum), 
 	Sum is Head + RestSum.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2 sum-up-numbers-general(L, N).
+
+sum-up-numbers-general([], 0).
+
+sum-up-numbers-general([Head | Tail], Sum) :- 
+	not(number(Head)),
+	not(is_list(Head)),
+	sum-up-numbers-general(Tail, RestSum),
+	Sum is 0 + RestSum.
 
