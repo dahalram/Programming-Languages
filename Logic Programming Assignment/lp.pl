@@ -86,11 +86,19 @@ get_nums([Head | Rest], [Head | List]) :-
 get_larger([], _, []).
 
 get_larger([Head | Rest], X, List) :- 
-	Head > X,
+	Head =< X,
 	get_larger(Rest, X, List).
 
 get_larger([Head | Rest], X, [Head | List]) :- 
 	get_larger(Rest, X, List).
+
+
+min_above_min(L1, L2, N) :- 
+	get_nums(L2, Res2),
+	get_nums(L1, Res1),
+	get_min(Res2, Min2),
+	get_larger(Res1, Min2, Larger),
+	get_min(Larger, N).
 
 
 
