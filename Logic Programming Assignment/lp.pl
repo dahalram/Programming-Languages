@@ -35,3 +35,11 @@ sum-up-numbers-general([Head | Tail], Sum) :-
 	sum-up-numbers-general(Tail, RestSum),
 	Sum is 0 + RestSum.
 
+sum-up-numbers-general([Head | Tail], Sum) :- 
+	not(number(Head)),
+	is_list(Head),
+	sum-up-numbers-general(Head, HeadSum),
+	sum-up-numbers-general(Tail, TailSum),
+	Sum is HeadSum + TailSum.
+
+
