@@ -101,3 +101,23 @@ common-unique-elements(L1, L2, N) :-
 	flatten_list(L2, List2),
 	get_common_elements(List1, List2, N).
 
+
+
+
+set_val([], []).
+
+% removing anything from an empty list 
+remove_duplicates(_, [], []).
+
+remove_duplicates(X, [X | Tail], Tail1) :- 
+	remove_duplicates(X, Tail, Tail1).
+
+remove_duplicates(X, [Head | Tail], [Head | Tail1]) :-
+    X \= Head,
+    remove_duplicates(X, Tail, Tail1).
+
+
+set_val([Head | Tail], [Head | Tail1]) :- 
+    remove_duplicates(Head, Tail, Tail2),
+    set_val(Tail2, Tail1).
+

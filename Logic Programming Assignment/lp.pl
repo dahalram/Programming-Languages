@@ -109,8 +109,8 @@ min-above-min(L1, L2, N) :-
 	get_min(Nums2, Min2),
 	get_nums(L1, Nums1),
 	get_larger(Nums1, Min2, Larger),
-	get_min(Larger, N).
-	%N is 0 + N1.
+	get_min(Larger, N1),
+	N is N1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 4 common-unique-elements(L1,L2,N). 
@@ -118,6 +118,7 @@ min-above-min(L1, L2, N) :-
 % Pseudo-code
 % First flatten both the lists so that you get a list of all elements
 % Now, for each element in list1, check if it exists in list2
+% Remove the duplicates
 
 % Remove the nested and flatten the list 
 flatten_list([], []).
@@ -139,11 +140,32 @@ get_common_elements([Head | Tail], L2, [Head | Res]) :-
 get_common_elements([_|Tail], L2, Res) :-
 	get_common_elements(Tail, L2, Res).
 
+
+% Remove the duplicates from the list
+set_val([], []).
+
+% removing anything from an empty list 
+remove_duplicates(_, [], []).
+
+remove_duplicates(X, [X | Tail], Tail1) :- 
+	remove_duplicates(X, Tail, Tail1).
+
+remove_duplicates(X, [Head | Tail], [Head | Tail1]) :-
+    X \= Head,
+    remove_duplicates(X, Tail, Tail1).
+
+
+set_val([Head | Tail], [Head | Tail1]) :- 
+    remove_duplicates(Head, Tail, Tail2),
+    set_val(Tail2, Tail1).
+
+
 % Get the common unique elements
 common-unique-elements(L1, L2, N) :-
 	flatten_list(L1, List1),
 	flatten_list(L2, List2),
-	get_common_elements(List1, List2, N).
+	get_common_elements(List1, List2, N1),
+	set_val(N1, N).
 
 
 
