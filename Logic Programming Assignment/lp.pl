@@ -115,6 +115,7 @@ min-above-min(L1, L2, N) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 4 common-unique-elements(L1,L2,N). 
 
+% Remove the nested and flatten the list 
 flatten_list([], []).
 
 flatten_list([Head | Tail], Flat) :-
@@ -124,6 +125,7 @@ flatten_list([Head | Tail], Flat) :-
 
 flatten_list(Head, [Head]).
 
+% Get common elements from the two lists
 get_common_elements([], _, []).
 
 get_common_elements([Head | Tail], L2, [Head | Res]) :-
@@ -133,7 +135,7 @@ get_common_elements([Head | Tail], L2, [Head | Res]) :-
 get_common_elements([_|Tail], L2, Res) :-
 	get_common_elements(Tail, L2, Res).
 
-
+% Get the common unique elements
 common-unique-elements(L1, L2, N) :-
 	flatten_list(L1, List1),
 	flatten_list(L2, List2),
