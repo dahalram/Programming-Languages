@@ -63,6 +63,14 @@ sum-up-numbers-general([Head | Tail], Sum) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 3 min-above-min(L1, L2, N).
 
+% Pseudo-code 
+% First get the numbers from L1 and L2
+% Then, get the minimum from L2, call it X
+% Get values larger than X in L1
+% Return the smallest value from L1 greater than X
+
+% Get minimum value from a list
+% If empty, return 0, if single element, return that element
 get_min([X], X).
 get_min([], 0).
 
@@ -74,6 +82,8 @@ get_min([X, Y | Rest], Min) :-
 	get_min([Y | Rest], Min).
 
 
+% Get the numbers from the list 
+% If empty list, return empty list 
 get_nums([], []).
 
 get_nums([Head | Rest], List) :- 
@@ -83,7 +93,7 @@ get_nums([Head | Rest], List) :-
 get_nums([Head | Rest], [Head | List]) :- 
 	get_nums(Rest, List).
 
-
+% Get values larger than a given number (i.e. larger than the minimum from L2)
 get_larger([], _, []).
 
 get_larger([Head | Rest], X, List) :- 
@@ -94,7 +104,7 @@ get_larger([Head | Rest], X, [Head | List]) :-
 	get_larger(Rest, X, List).
 
 
-min_above_min(L1, L2, N) :- 
+min-above-min(L1, L2, N) :- 
 	get_nums(L2, Nums2),
 	get_min(Nums2, Min2),
 	get_nums(L1, Nums1),
