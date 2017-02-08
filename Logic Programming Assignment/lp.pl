@@ -75,6 +75,7 @@ get_min([X], X).
 get_min([], 0).
 
 get_min([X, Y | Rest], Min) :- 
+	!, 
 	X < Y,
 	get_min([X | Rest], Min).
 
@@ -91,6 +92,7 @@ get_nums([Head | Rest], List) :-
 	get_nums(Rest, List).
 
 get_nums([Head | Rest], [Head | List]) :- 
+	number(Head),
 	get_nums(Rest, List).
 
 % Get values larger than a given number (i.e. larger than the minimum from L2)
@@ -143,7 +145,6 @@ get_common_elements([_|Tail], L2, Res) :-
 
 
 % Remove the duplicates from the list
-set_val([], []).
 
 % removing anything from an empty list 
 remove_duplicates(_, [], []).
@@ -155,6 +156,7 @@ remove_duplicates(X, [Head | Tail], [Head | Tail1]) :-
     X \= Head,
     remove_duplicates(X, Tail, Tail1).
 
+set_val([], []).
 
 set_val([Head | Tail], [Head | Tail1]) :- 
 	!,
