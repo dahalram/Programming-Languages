@@ -64,6 +64,7 @@ sum-up-numbers-general([Head | Tail], Sum) :-
 % 3 min-above-min(L1, L2, N).
 
 get_min([X], X).
+get_min([], 0).
 
 get_min([X, Y | Rest], Min) :- 
 	X < Y,
@@ -94,11 +95,13 @@ get_larger([Head | Rest], X, [Head | List]) :-
 
 
 min_above_min(L1, L2, N) :- 
-	get_nums(L2, Res2),
-	get_nums(L1, Res1),
-	get_min(Res2, Min2),
-	get_larger(Res1, Min2, Larger),
+	get_nums(L2, Nums2),
+	get_min(Nums2, Min2),
+	get_nums(L1, Nums1),
+	get_larger(Nums1, Min2, Larger),
 	get_min(Larger, N).
+	%N is 0 + N1.
+
 
 
 
