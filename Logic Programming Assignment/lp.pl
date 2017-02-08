@@ -115,6 +115,10 @@ min-above-min(L1, L2, N) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 4 common-unique-elements(L1,L2,N). 
 
+% Pseudo-code
+% First flatten both the lists so that you get a list of all elements
+% Now, for each element in list1, check if it exists in list2
+
 % Remove the nested and flatten the list 
 flatten_list([], []).
 
