@@ -77,7 +77,27 @@ inter([_|T1], L2, Res) :-
 test(X):-
         inter([1,3,5,2,4], [6,1,2], X), !.
 
-/* test(X).
-X = [1, 2].
-*/
+flatten_list([], []).
+
+flatten_list([Head | Tail], Flat) :-
+	flatten_list(Head, Fl1),
+	flatten_list(Tail, Fl2),
+	append(Fl1, Fl2, Flat).
+
+flatten_list(Head, [Head]).
+
+get_common_elements([], _, []).
+
+get_common_elements([Head | Tail], L2, [Head | Res]) :-
+	member(Head, L2),
+	get_common_elements(Tail, L2, Res).
+
+get_common_elements([_|Tail], L2, Res) :-
+	get_common_elements(Tail, L2, Res).
+
+
+common-unique-elements(L1, L2, N) :-
+	flatten_list(L1, List1),
+	flatten_list(L2, List2),
+	get_common_elements(List1, List2, N).
 

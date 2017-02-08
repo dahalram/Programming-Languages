@@ -130,6 +130,8 @@ get_common_elements([Head | Tail], L2, [Head | Res]) :-
 	member(Head, L2),
 	get_common_elements(Tail, L2, Res).
 
+get_common_elements([_|Tail], L2, Res) :-
+	get_common_elements(Tail, L2, Res).
 
 
 
