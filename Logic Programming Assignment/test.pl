@@ -54,3 +54,13 @@ flatten2([L|Ls], FlatL) :-
     flatten2(Ls, NewLs),
     append(NewL, NewLs, FlatL).
 flatten2(L, [L]).
+
+flatten_list([], []).
+
+flatten_list([Head | Tail], Flat) :-
+	flatten_list(Head, Fl1),
+	flatten_list(Tail, Fl2),
+	append(Fl1, Fl2, Flat).
+	
+flatten_list(Head, [Head]).
+

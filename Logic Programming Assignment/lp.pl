@@ -112,11 +112,17 @@ min-above-min(L1, L2, N) :-
 	get_min(Larger, N).
 	%N is 0 + N1.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 4 common-unique-elements(L1,L2,N). 
 
+flatten_list([], []).
 
+flatten_list([Head | Tail], Flat) :-
+	flatten_list(Head, Fl1),
+	flatten_list(Tail, Fl2),
+	append(Fl1, Fl2, Flat).
 
-
-
+flatten_list(Head, [Head]).
 
 
 
