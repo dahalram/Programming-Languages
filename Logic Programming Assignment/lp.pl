@@ -124,6 +124,12 @@ flatten_list([Head | Tail], Flat) :-
 
 flatten_list(Head, [Head]).
 
+get_common_elements([], _, []).
+
+get_common_elements([Head | Tail], L2, [Head | Res]) :-
+	member(Head, L2),
+	get_common_elements(Tail, L2, Res).
+
 
 
 
